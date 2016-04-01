@@ -3,7 +3,7 @@
 import random
 
 import const
-from particle import Particle, propagate
+from particle import Particle
 from detector import Detector
 from initial import Beam, Profile, Energy
 
@@ -33,8 +33,8 @@ detector = Detector(
 for _ in range(N):
     particle = Particle(beam)
     while particle.alive:
-        particle = propagate(particle, detector)
+        particle.propagate(detector)
         if detector.voxel(particle.position) is None:
-            particle.alive = False
+            break
 
 detector.output()

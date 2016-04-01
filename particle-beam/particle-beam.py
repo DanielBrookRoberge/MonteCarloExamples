@@ -32,9 +32,7 @@ detector = Detector(
 
 for _ in range(N):
     particle = Particle(beam)
-    while particle.alive:
+    while particle.energy > 0 and detector.voxel(particle.position):
         particle.propagate(detector)
-        if detector.voxel(particle.position) is None:
-            break
 
 detector.output()

@@ -16,7 +16,7 @@ class Profile(object):
         elif self.shape == const.GAUSSIAN:
             r = self.diameter * sqrt(random.uniform(0, 1)) * random.gauss(0, 1)
         else:
-            print 'Unknown shape of beam'
+            print('Unknown shape of beam')
             r = 0
         return self.centre + r * cos(theta), r * sin(theta)
 

@@ -13,7 +13,10 @@ class Detector(object):
         self.voxel_length = size / voxels
 
     def index(self, xi, yi, zi):
-        return xi + self.size*yi + self.size**2*zi
+        i = xi + self.size*yi + self.size**2*zi
+        if i < 0:
+            raise IndexError
+        return i
 
     def voxel(self, position):
         x, y, z = position
@@ -26,4 +29,10 @@ class Detector(object):
         yi = int(floor(y / self.voxel_length))
         zi = int(floor(z / self.voxel_length))
 
-        return self.voxels[self.index(xi, yi, zi)]
+        try:
+            return self.voxels[self.index(xi, yi, zi)]
+        except IndexError:
+            return None
+
+    def output(self):
+        pass

@@ -9,7 +9,7 @@ from initial import Beam, Profile, Energy
 
 random.seed(91400)
 
-N = 1000
+N = 100000
 
 beam = Beam(
     profile=Profile(

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import random
 
 MUON_LIFETIME_NS = 2196.98
@@ -7,7 +8,7 @@ DECAY_PROBABILITY_PER_NS = 1 / MUON_LIFETIME_NS
 
 STEP_SIZE_NS = 50
 
-N = 1000000
+N = 100000
 
 random.seed(3414901283)
 
@@ -24,3 +25,6 @@ for _ in range(N):
 mean_lifetime = sum(lifetimes)/N
 
 print('Mean lifetime (ns) calculated from %d simulated particles: %f' % (N, mean_lifetime))
+
+with open('lifetimes.json', 'w') as outfile:
+    outfile.write(json.dumps(lifetimes))

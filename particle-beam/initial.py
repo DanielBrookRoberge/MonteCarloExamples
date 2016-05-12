@@ -16,16 +16,21 @@ class Profile(object):
         """
         Generate an initial position in the XY plane based on the defined shape
         """
+        # Generate a random polar angle
         theta = random.uniform(0, 2*pi)
         if self.shape == const.UNIFORM:
+            # This generates a uniform distribution over the disc,
+            # since there are fewer points at small radii
             r = self.diameter * sqrt(random.uniform(0, 1))
         elif self.shape == const.GAUSSIAN:
             r = self.diameter * sqrt(random.uniform(0, 1)) * random.gauss(0, 1)
         else:
             print('Unknown shape of beam')
             r = 0
+        # convert from polar to rectangular
         return self.centre + r * cos(theta), r * sin(theta)
 
+# Generate a random number from the given distribution.
 energy_shapes = {
     const.UNIFORM: lambda mean, width: random.uniform(mean - width, mean + width),
     const.GAUSSIAN: random.gauss,

@@ -3,6 +3,9 @@ GAUSSIAN = 'gaussian'
 LORENTZIAN = 'lorentzian'
 
 # Distance is in mm, energy in MeV
+MM = 1
+MEV = 1
+
 STEP_DISTANCE = 1
 # 1%/cm
 ABSORPTION_PROB = 0.001

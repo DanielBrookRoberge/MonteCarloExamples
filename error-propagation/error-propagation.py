@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import numpy
 import random
 
@@ -15,7 +16,7 @@ def f(a, b):
 
     return elements[0] / elements[1]
 
-N = 1000
+N = 100000
 
 input_a_mean = 3
 input_a_stdev = 2
@@ -35,3 +36,6 @@ result_mean = numpy.mean(result_sample)
 result_stdev = numpy.std(result_sample)
 
 print('Resulting value from %d samples: %f +- %f' % (N, result_mean, result_stdev))
+
+with open('result-values.json', 'w') as outfile:
+    outfile.write(json.dumps(result_sample))

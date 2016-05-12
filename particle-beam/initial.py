@@ -4,12 +4,18 @@ import random
 import const
 
 class Profile(object):
+    """
+    An object encapsulating the spatial distribution of the particle origins.
+    """
     def __init__(self, centre, diameter, shape):
         self.centre = centre
         self.diameter = diameter
         self.shape = shape
 
     def generate(self):
+        """
+        Generate an initial position in the XY plane based on the defined shape
+        """
         theta = random.uniform(0, 2*pi)
         if self.shape == const.UNIFORM:
             r = self.diameter * sqrt(random.uniform(0, 1))

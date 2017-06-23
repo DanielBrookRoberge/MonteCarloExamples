@@ -10,7 +10,7 @@ import sys
 try:
     N = int(sys.argv[1])
 except IndexError:
-    N = 100
+    N = 175
 
 try:
     seed = int(sys.argv[2])
